@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>   
+    <script src="scripts.js"></script>
+</head>
+
+<body>
+    <div ng-app="wikiApp" ng-controller="myCtrl" class="bodyDiv container">
+        <div class="row">
+            <div class="centered mainDiv">
+                <button type="button" ng-click="getRandom()">Read Random Wikipedia Page</button>
+                <input type="text" placeholder="Search Wikipedia" maxlength="20" ng-model="searchString" ng-keypress="goSearch($event)">
+            </div>
+            <div class="col-md-6">
+                <div ng-repeat="result in results" class="resultDiv">
+                    <h2>{{result.title}}</h2>
+                    <p>{{result.body}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
